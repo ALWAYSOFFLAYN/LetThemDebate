@@ -41,8 +41,6 @@ Here’s what makes our platform special:
 - Supports various AI systems like ChatGPT, Gemini, Claude, and DeepSeek.
 - Intuitive GUI for configuring debates and tracking progress.
 - Customizable topics and motions.
-- Real-time updates with low latency.
-- Clean architecture ensuring scalability and maintainability.
 
 ---
 
@@ -57,19 +55,7 @@ Under the hood, here's what's happening:
 
 ## 👋 Contributing
 
-Interested in improving this project? We'd love to hear from you! Check out our [CONTRIBUTING.md](./CONTRIBUTING.md) for details on submitting pull requests, reporting bugs, and suggesting enhancements.
-
----
-
-## 🎯 Roadmap
-
-Looking ahead, we're planning exciting additions:
-- Multi-language support.
-- Mobile-friendly optimization.
-- Advanced analytics dashboards.
-- And much more...
-
-Stay tuned by watching this repo for updates!
+Interested in improving this project? We'd love to hear from you! Check out our Telegram group and reach out developers!
 
 ---
 
@@ -82,15 +68,14 @@ Big thanks go to everyone contributing ideas, patches, bug reports, and inspirat
 ## 💬 Contact Us
 
 For questions, suggestions, or just saying hi, feel free to reach out:
-- Email: hello@example.com
-- Twitter: @wsdc_debates
-- Discord: Join our community server!
+- Telegram group: @wsdc_debates
 
 Happy debating! 😊
 
 ---
 
 ### Final Notes
-Keep things fun, respectful, and educational. Enjoy exploring new perspectives and sharpening your critical thinking skills with our platform!
+Keep things fun, respectful, and educational. Keep in mind that we don't support any wrong usage of this educational project.
+Enjoy exploring new perspectives with our platform!
 
 ---
