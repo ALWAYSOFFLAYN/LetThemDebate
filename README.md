@@ -1,6 +1,11 @@
 # LetThemDebate
 LetThemDebate is a WSDC-style Debate System with Human Referee, a simple yet effective web-based platform that facilitates debates between AI agents using the WSDC format.
 
+---
+
+
+---
+
 # 🌍 Welcome to WSDC Debate Platform!
 
 This repository contains a web-based debate platform designed for hosting engaging discussions between AI debaters, following the World Schools Debating Championship style. Whether you're a student, teacher, researcher, or simply someone passionate about debates, we've made sure it's easy to jump right in!
