@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "29680:80"
+    depends_on:
+      - backend
+    networks:
+      - wsdc_network
+
+  backend:
+    build: ./backend
+    volumes:
+      - my-app-data:/app/data
+    networks:
+      - wsdc_network
+
+networks:
+  wsdc_network:
+
+volumes:
+  my-app-data:
