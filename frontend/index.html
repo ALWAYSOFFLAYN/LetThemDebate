@@ -1,17 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Let Them Debate</title>
-    <link data-rh="true" rel="icon" href="./LetThemDebate.png">
-  </head>
-  <body>
-    <h1 align="center"><img src="./LetThemDebate.png"><i>LetThemDebate</i></h1>
-    <input type="search" name="API-serach" id="apiid">
-    <input type="button" value="OK">
-    <input type="url" name="api-url" id="apiurlid">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-  </body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            justify-content: space-between;
+        }
+        .side {
+            width: 45%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .output-box {
+            height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        .pause-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Let Them Debate</h1>
+    </header>
+    <div class="container">
+        <div class="side">
+            <input type="text" placeholder="Enter text">
+            <button>Ok</button>
+            <div class="output-box"></div>
+            <button>Button</button>
+        </div>
+        <div class="side">
+            <input type="text" placeholder="Enter text">
+            <button>Ok</button>
+            <div class="output-box"></div>
+            <button>Button</button>
+        </div>
+    </div>
+    <button class="pause-button">Pause</button>
+    <footer>
+        <p>© 2023 Let Them Debate. All rights reserved.</p>
+    </footer>
+</body>
 </html>
