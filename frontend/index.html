@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Let Them Debate</title>
+    <img src="./LetThemDebate.png">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -75,6 +76,19 @@
             position: absolute;
             bottom: 0;
         }
+        .disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .retry-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -83,21 +97,23 @@
     </header>
     <div class="container">
         <div class="side">
-            <input type="text" placeholder="Enter text">
-            <button>Ok</button>
-            <div class="output-box"></div>
-            <button>Button</button>
+            <input type="text" id="input1" placeholder="Enter text">
+            <button id="ok1">Ok</button>
+            <div class="output-box" id="output1"></div>
+            <button class="retry-button" id="retry1">Retry</button>
         </div>
         <div class="side">
-            <input type="text" placeholder="Enter text">
-            <button>Ok</button>
-            <div class="output-box"></div>
-            <button>Button</button>
+            <input type="text" id="input2" placeholder="Enter text">
+            <button id="ok2">Ok</button>
+            <div class="output-box" id="output2"></div>
+            <button class="retry-button" id="retry2">Retry</button>
         </div>
     </div>
     <button class="pause-button">Pause</button>
     <footer>
         <p>2025 LetThemDebate.</p>
     </footer>
+
+     <script src="script.js"></script>
 </body>
 </html>
