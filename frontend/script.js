@@ -1,5 +1,3 @@
-// script.js
-// script.js
 document.addEventListener('DOMContentLoaded', function() {
     const okButtons = document.querySelectorAll('button[id^="ok"]');
     const inputFields = document.querySelectorAll('input[id^="input"]');
@@ -8,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const notification = document.getElementById('notification');
     const notificationMessage = document.getElementById('notification-message');
     const notificationClose = document.getElementById('notification-close');
+    const topicInput = document.getElementById('topic');
 
     okButtons.forEach((button, index) => {
         button.addEventListener('click', function() {
@@ -56,14 +55,53 @@ document.addEventListener('DOMContentLoaded', function() {
             const input = inputFields[index];
             const ok = okButtons[index];
 
-            // Re-enable the button and input field
+            /* Re-enable the button and input field */
             ok.disabled = false;
             ok.classList.remove('disabled');
             input.disabled = false;
 
-            // Hide the retry button after clicking it
+            /* Hide the retry button after clicking it */
             button.style.display = 'none';
         });
+    });
+
+    // Handle Enter key press in the topic input field
+    topicInput.addEventListener('keypress', function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+
+            // Disable the topic input field
+            topicInput.disabled = true;
+
+            // Get the topic value
+            const topic = topicInput.value;
+
+            // Send a request to the backend server
+            const data = {
+                topic: topic
+            };
+
+            fetch('/api', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result) {
+                        // Handle the result from the API call
+                        console.log(data.result);
+                    } else {
+                        // Handle errors
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
     });
 
     // Close the notification when the close button is clicked
