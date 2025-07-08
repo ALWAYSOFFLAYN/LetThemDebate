@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./LetThemDebate.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <title>Let Them Debate</title>
-    <img src="./LetThemDebate.png">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #aaa;
             margin: 0;
+            margin-top: -50px;
             padding: 0;
             display: flex;
             flex-direction: column;
@@ -18,15 +22,43 @@
             height: 100vh;
         }
         header {
+            margin-top: 0px; /* Space above the element */
             width: 100%;
             text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
+            padding: 0px;
+            color: black;
         }
-        .container {
+        h1 {
+            font-family: "Shadows Into Light", cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 80px;
+        }
+        .api-container {
+            margin-top: 0px;
+            margin-bottom: 20px; 
+            margin-left: 60px; 
+            margin-right: 60px; 
             display: flex;
             width: 80%;
+            justify-content: space-between;
+        }
+        .response-container {
+            margin-top: 0px;
+            margin-bottom: 20px; 
+            margin-left: 40px; 
+            margin-right: 40px; 
+            display: flex;
+            width: 70%;
+            justify-content: space-between;
+        }
+        .topic-container {
+            margin-top: 20px;
+            margin-bottom: 0px; 
+            margin-left: 40px; 
+            margin-right: 40px; 
+            display: flex;
+            width: 90%;
             justify-content: space-between;
         }
         .side {
@@ -35,6 +67,7 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
         }
         input[type="text"] {
             width: 100%;
@@ -42,10 +75,11 @@
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            position: relative;
         }
         button {
             padding: 10px 20px;
-            background-color: #007bff;
+            background-color: #aaa;
             color: white;
             border: none;
             border-radius: 4px;
@@ -58,21 +92,42 @@
             margin-bottom: 10px;
             padding: 10px;
         }
-        .pause-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #ff5722;
-            color: white;
+        .vote-button{
+            margin-left: 160px; 
+            margin-right: 160px; 
+            width: 100px; 
+            height: 50px; 
+            font-size: 14px; 
+            padding: 5px 10px; 
+            color: #808080;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
+        .pause-button {
+            width: 100px; 
+            height: 50px; 
+            font-size: 14px; 
+            padding: 5px 10px; 
+            color: #808080;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh;
+        }
         footer {
+            margin-top: 20px;
             width: 100%;
             text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
+            padding: 0px;
+            opacity: 0.5;
+            background-color: rgba(0, 0, 0, 1);
+            color: whitesmoke;
             position: absolute;
             bottom: 0;
         }
@@ -88,32 +143,79 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            display: none; /* Hide initially */
+        }
+        .ok-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        #notification {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            color: whitesmoke;
+            padding: 20px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        #notification-close {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Let Them Debate</h1>
+        <h1>LetThemDebate</h1>
     </header>
-    <div class="container">
+    <div class="api-container">
         <div class="side">
-            <input type="text" id="input1" placeholder="Enter text">
-            <button id="ok1">Ok</button>
-            <div class="output-box" id="output1"></div>
-            <button class="retry-button" id="retry1">Retry</button>
+            <input type="text" id="input1" placeholder="Enter API for the 1st debator">
+            <button class="ok-button" id="ok1">Ok</button>
+            <div class="button-group">
+                <button class="retry-button" id="retry1">Retry</button>
+            </div>
         </div>
         <div class="side">
-            <input type="text" id="input2" placeholder="Enter text">
-            <button id="ok2">Ok</button>
-            <div class="output-box" id="output2"></div>
-            <button class="retry-button" id="retry2">Retry</button>
+            <input type="text" id="input2" placeholder="Enter API for the 2nd debator">
+            <button class="ok-button" id="ok2">Ok</button>
+            <div class="button-group">
+                <button class="retry-button" id="retry2">Retry</button>
+            </div>
         </div>
     </div>
-    <button class="pause-button">Pause</button>
+    <div class="response-container">
+        <div class="side">
+            <div class="output-box" id="output1"></div>
+        </div>
+        <div class="side">
+            <div class="output-box" id="output2"></div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="vote-button"><img src="./LetThemDebate.png" alt="Vote for the first"></button>
+        <button class="pause-button"><img src="./pause.png" alt="Pause"></button>
+        <button class="vote-button"><img src="./LetThemDebate.png" alt="Vote for the second"></button>
+    </div>
+    <div class="topic-container">
+        <input type="text" id="topic" placeholder="Enter topic to debate">
+    </div>
     <footer>
-        <p>2025 LetThemDebate.</p>
+        <p>Demo : 2025 LetThemDebate.</p>
     </footer>
-
-     <script src="script.js"></script>
+    <div id="notification" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #333; color: whitesmoke; padding: 20px; border-radius: 5px; z-index: 1000;">
+        <p id="notification-message"></p>
+        <button id="notification-close">Close</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
